@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Design tokens, exposed to Tailwind so utilities like bg-primary,
+   text-accent, rounded-card, etc. are generated automatically. */
+@theme {
+  --color-bg: #fafaf7;
+  --color-bg-secondary: #f0f0eb;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
+  --color-primary: #1f6b4c;
+  --color-primary-light: #e7f2ec;
+  --color-accent: #e8732e;
+  --color-border: #e0e0d8;
+  --color-card-bg: #ffffff;
+  --color-hero-bg: #f6ead0;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Poppins", sans-serif;
+
+  --max-width-container: 1200px;
+  --radius-card: 10px;
+}
+
+/* Dark theme overrides the same custom properties, so every utility
+   generated above (bg-bg, text-text, border-border, etc.) automatically
+   repaints -- the toggle just flips this attribute on <html>. */
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-bg-secondary: #1a1a1a;
+  --color-text: #f1f1f1;
+  --color-text-muted: #b0b0b0;
+  --color-primary: #3fa379;
+  --color-primary-light: #1d2b24;
+  --color-accent: #ff7a30;
+  --color-border: #2a2a2a;
+  --color-card-bg: #1e1e1e;
+  --color-hero-bg: #0d0d0d;
+}
+
+/* Ties Tailwind's dark: variant to our data-theme attribute (set by
+   ThemeContext) instead of the OS-level prefers-color-scheme media query. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  body {
+    @apply font-sans bg-bg text-text transition-colors duration-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
