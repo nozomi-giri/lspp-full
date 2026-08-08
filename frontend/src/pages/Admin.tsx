@@ -11,6 +11,11 @@ function Admin() {
     !!localStorage.getItem("adminToken")
   );
 
+  function handleLogout() {
+    localStorage.removeItem("adminToken");
+    setLoggedIn(false);
+  }
+
   return (
     <div>
       <Navbar />
@@ -44,6 +49,12 @@ function Admin() {
                 onClick={() => setActiveTab("faqs")}
               >
                 FAQs
+              </button>
+              <button
+                onClick={handleLogout}
+                className="rounded-card border border-border px-5 py-2 font-medium text-text"
+              >
+                Log Out
               </button>
             </div>
             {activeTab === "mentors" && <AdminMentors />}
