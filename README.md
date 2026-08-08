@@ -18,7 +18,7 @@ The backend is on Render's free tier, so it may take 30-60 seconds to wake up if
 - Image gallery with carousel
 - Animated stats counters
 - Mentors and FAQs loaded dynamically from MongoDB
-- Admin login (JWT-based) with a working logout
+- Admin login (JWT-based) with a working logout (password: Lspp@2026)
 - Admin panel to add/edit/delete mentors and FAQs
 - Public GET routes, protected POST/PUT/DELETE routes
 
